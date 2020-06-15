@@ -5,9 +5,13 @@ RUN source activate rapids \
     && chmod 777 /.local /.jupyter /.config /.cupy
 RUN source activate rapids \ 
     && pip install -U scikit-learn==0.23.1
+
+RUN mkdir /workshop
+COPY workshop /workshop
 EXPOSE 8888
 EXPOSE 8787
 EXPOSE 8786
+WORKDIR /workshop
 
 ENTRYPOINT /bin/bash -c 'source activate rapids; /bin/bash'
 
