@@ -13,5 +13,6 @@ EXPOSE 8787
 EXPOSE 8786
 WORKDIR /workshop
 
-ENTRYPOINT /bin/bash -c 'source activate rapids; /bin/bash'
+#ENTRYPOINT /bin/bash -c 'source activate rapids; /bin/bash'
+ENTRYPOINT /bin/bash -c 'source activate rapids; jupyter-lab --allow-root --ip=0.0.0.0 --no-browser --NotebookApp.token='
 
